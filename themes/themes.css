@@ -1,0 +1,35 @@
+.theme.theme-light {
+    --color-primary: rgb(255 51 95);
+    --color-secondary: rgb(67 169 163);
+    --color-background: rgb(236 238 239);
+    --color-copy: rgb(129 138 145);
+    --color-heading: rgb(55 58 60);
+}
+
+.theme.theme-dark {
+    --color-primary: rgb(255 51 95);
+    --color-secondary: rgb(67 169 163);
+    --color-background: rgb(55 58 60);
+    --color-copy: rgb(236 238 239);
+    --color-heading: rgb(250 250 250);
+}
+
+.theme {
+    @apply bg-background min-h-screen min-w-full;
+}
+
+.theme a {
+    @apply text-primary;
+}
+
+.theme a:hover, .theme a:focus {
+    @apply underline;
+}
+
+.theme h1, .theme h2, .theme h3, .theme h4, .theme h5, .theme h6 {
+    @apply text-heading;
+}
+
+.theme, .theme p {
+    @apply text-copy;
+}
