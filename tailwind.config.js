@@ -8,7 +8,12 @@ module.exports = {
     darkMode: true, // or 'media' or 'class'
     theme: {
         extend: {
+            container: {
+                center: true,
+                padding: '1rem',
+            },
             colors: {
+                main: "var(--color-main)",
                 primary: "var(--color-primary)",
                 secondary: "var(--color-secondary)",
                 background: "var(--color-background)",

@@ -1,0 +1,43 @@
+@import url('//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+    @apply bg-background min-h-screen min-w-full;
+}
+
+body a {
+    @apply relative inline-block text-heading;
+}
+
+body.a.link-simple:hover, body.a.link-simple:focus {
+    @apply underline;
+}
+
+body a:not(.link-simple):before {
+    content: '';
+    @apply absolute bottom-0 left-0 bg-primary w-full h-2;
+    transform: translateY(0.125em) scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+    z-index: -1;
+}
+
+body a:not(.link-simple):after {
+    content: '';
+    @apply absolute bottom-0 left-0 bg-copy w-full h-2;
+    transform: translateY(0.125em);
+    opacity: 0.1;
+    z-index: -2;
+}
+
+body a:not(.link-simple):hover:before, body a:not(.link-simple):focus:before {
+    transform: translateY(0.125em) scaleX(1);
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+    @apply text-heading font-bold;
+    font-family: "PT Serif", serif;
+}
+
+body, body p {
+    @apply text-copy;
+}

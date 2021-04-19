@@ -1,8 +1,22 @@
+import Head from 'next/head'
+import Typist from 'react-text-typist';
 import MainLayout from "../layouts/main.js"
+import { XxlContainer } from "./_container.mdx"
 
-# Wassup
- nice
-buddy
-test
+<div className="container flex items-center min-h-[20rem]">
+    <div>
+        <div className="pb-4">
+            <small className="text-primary uppercase text-sm font-bold">Hello, my name is Spence</small>
+        </div>
+        <h1 className="text-4xl sm:text-7xl lg:text-8xl">
+            I make <span className="text-secondary"><Typist sentences={["websites. ", "apps. ",]} pauseTime={"6000"} showCursor={false} /></span>
+        </h1>
+        <p className="py-8 md:text-xl text-heading">
+            I'm the tech lead at <a target="_blank" href="https://barr.media?ref=matt">Barr Media</a>, a marketing and design led agency in the South West, UK.
+            <br/>
+            I also write about the web on my <a href="/blog">Blog</a> and post personal stories on <a target="_blank" href="https://instagram.com/watchspence">Instagram</a>.
+        </p>
+    </div>
+</div>
 
 export default ({ children }) => <MainLayout>{children}</MainLayout>

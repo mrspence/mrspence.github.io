@@ -1,9 +1,12 @@
 // import App from 'next/app'
 import 'tailwindcss/tailwind.css'
-import '../themes/themes.css'
+import '@tailwindcss/typography/dist/typography.css'
+import 'css/themes.css'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+      <Component {...pageProps} />
+  )
 }
 
 // Only uncomment this method if you have blocking data requirements for
