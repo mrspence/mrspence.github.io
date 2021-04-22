@@ -1,18 +1,49 @@
 @import url('//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 
 body {
-    @apply bg-background min-h-screen min-w-full;
+    @apply bg-background min-h-screen min-w-full overflow-x-hidden overflow-y-scroll;
+}
+
+a, p, h1, h2, h3, h4, h5, h6, small {
+    transition: color 0.2s ease;
 }
 
 body a {
-    @apply relative inline-block text-heading;
+    @apply relative inline-block text-heading cursor-pointer;
+    text-decoration: none !important;
 }
 
-body.a.link-simple:hover, body.a.link-simple:focus {
-    @apply underline;
+body a.link-simple:hover, body a.link-simple:focus {
+    @apply underline !important;
 }
 
-body a:not(.link-simple):before {
+.card {
+    @apply relative inline-block;
+}
+
+body .card a.link-card {
+    @apply absolute top-0 left-0 w-full h-full z-20;
+}
+
+body .card .card-content {
+    @apply p-3 rounded-lg;
+    transform: translateY(0);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+body .card a.link-card:hover + .card-content, body .card a.link-card:focus + .card-content {
+    transform: translateY(-0.35rem);
+    @apply shadow-lg;
+}
+
+body .card a.link-card:hover:active + .card-content, body .card a.link-card:focus:active + .card-content {
+    transition-duration: 0.1s;
+    transform: translateY(-0.125rem);
+}
+
+
+
+body a:not(.link-simple):not(.link-card):before {
     content: '';
     @apply absolute bottom-0 left-0 bg-primary w-full h-2;
     transform: translateY(0.125em) scaleX(0);
@@ -21,7 +52,7 @@ body a:not(.link-simple):before {
     z-index: -1;
 }
 
-body a:not(.link-simple):after {
+body a:not(.link-simple):not(.link-card):after {
     content: '';
     @apply absolute bottom-0 left-0 bg-copy w-full h-2;
     transform: translateY(0.125em);
@@ -29,15 +60,111 @@ body a:not(.link-simple):after {
     z-index: -2;
 }
 
-body a:not(.link-simple):hover:before, body a:not(.link-simple):focus:before {
+body a:not(.link-simple):not(.link-card):hover:before, body a:not(.link-simple):not(.link-card):focus:before {
     transform: translateY(0.125em) scaleX(1);
 }
 
 body h1, body h2, body h3, body h4, body h5, body h6 {
-    @apply text-heading font-bold;
+    @apply relative text-heading font-bold;
     font-family: "PT Serif", serif;
+}
+
+body h1[id], body h2[id], body h3[id], body h4[id], body h5[id], body h6[id] {
+    @apply pointer-events-none;
+}
+
+body h1[id]:before, body h2[id]:before, body h3[id]:before, body h4[id]:before, body h5[id]:before, body h6[id]:before {
+    content: '# ';
+    @apply opacity-40 cursor-pointer pointer-events-auto font-thin;
+    font-family: ui-monospace, sans-serif;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+body h1[id]:hover:before, body h2[id]:hover:before, body h3[id]:hover:before, body h4[id]:hover:before, body h5[id]:hover:before, body h6[id]:hover:before,
+body h1[id]:focus:before, body h2[id]:focus:before, body h3[id]:focus:before, body h4[id]:focus:before, body h5[id]:focus:before, body h6[id]:focus:before
+{
+    @apply opacity-100;
+    @apply text-primary;
 }
 
 body, body p {
     @apply text-copy;
+}
+
+.form-contact input, .form-contact textarea {
+    @apply mt-0 block w-full px-0.5 border-0 border-b-2 border-secondary bg-transparent focus:ring-0 focus:border-heading;
+}
+
+.btn-submit {
+    @apply relative inline-block font-bold px-8 py-2 text-secondary transform;
+}
+
+.btn-submit:disabled {
+    @apply pointer-events-none;
+    filter: contrast(0);
+}
+
+.btn-submit:before {
+    content: '';
+    @apply absolute bottom-0 right-0 w-full h-full transform scale-y-[0.4] scale-x-[0.7] translate-y-4 origin-bottom-right opacity-30 z-[-1];
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-submit:not(:disabled):hover:before, .btn-submit:not(:disabled):focus:before {
+    @apply bg-secondary translate-x-6 scale-x-[0.6];
+}
+
+.btn-submit:active:before, .btn-submit:active:before, .btn-submit:disabled:before {
+    @apply bg-secondary translate-x-6 scale-x-[0];
+    transition-duration: 0.1s;
+}
+
+.btn-submit:after {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full transform scale-y-[0.2] scale-x-[0.3] origin-top-left opacity-30 z-[-1];
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-submit:not(:disabled):hover:after, .btn-submit:not(:disabled):focus:after {
+    @apply bg-secondary -translate-x-3;
+}
+
+.btn-submit:active:after, .btn-submit:active:after, .btn-submit:disabled:after {
+    @apply bg-secondary scale-x-[0];
+    transition-duration: 0.1s;
+}
+
+.form-contact .error {
+    @apply min-h-[1.85em];
+}
+
+.form-contact .error > div {
+    @apply flex justify-between items-center text-sm pt-2 pb-4 text-heading;
+}
+
+@keyframes errorBounce {
+    0% {
+        transform: translateX(-0.125rem);
+    }
+    33% {
+        transform: translateX(-0.125rem);
+    }
+    66% {
+        transform: translateX(0.125rem);
+    }
+    100% {
+        transform: translateX(-0.125rem);
+    }
+}
+
+.form-contact .error > div svg {
+    animation: errorBounce 0.8s ease-in-out 0s infinite;
+}
+
+@screen md {
+    .form-contact .error > div {
+        @apply justify-end text-right;
+    }
 }

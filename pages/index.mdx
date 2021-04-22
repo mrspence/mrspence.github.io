@@ -1,22 +1,33 @@
-import Head from 'next/head'
+import Link from 'next/link'
 import Typist from 'react-text-typist';
-import MainLayout from "../layouts/main.js"
+import MainLayout from "layouts/main.js"
+import PostsCards from "components/posts-cards";
 import { XxlContainer } from "./_container.mdx"
 
-<div className="container flex items-center min-h-[20rem]">
+<div className="container mx-auto max-w-5xl flex items-center min-h-[22rem] md:mb-20">
     <div>
         <div className="pb-4">
-            <small className="text-primary uppercase text-sm font-bold">Hello, my name is Spence</small>
+            <small className="text-secondary uppercase text-sm font-bold">Hello, my name is Spence</small>
         </div>
-        <h1 className="text-4xl sm:text-7xl lg:text-8xl">
-            I make <span className="text-secondary"><Typist sentences={["websites. ", "apps. ",]} pauseTime={"6000"} showCursor={false} /></span>
+        <h1 className="text-4xl md:text-6xl lg:!text-8xl lg:pb-8">
+            I <Typist sentences={["create", "code",]} pauseTime={"10000"} showCursor={false} startDelay={"200"} /><span className="text-secondary"><Typist sentences={["websites. ", "apps. ", "dreams. ",]} pauseTime={"5000"} startDelay={"800"} showCursor={false} /></span>
         </h1>
         <p className="py-8 md:text-xl text-heading">
             I'm the tech lead at <a target="_blank" href="https://barr.media?ref=matt">Barr Media</a>, a marketing and design led agency in the South West, UK.
             <br/>
-            I also write about the web on my <a href="/blog">Blog</a> and post personal stories on <a target="_blank" href="https://instagram.com/watchspence">Instagram</a>.
+            I also write about the web on my <Link href="/blog"><a>Blog</a></Link> and post personal stories on <a target="_blank" href="https://instagram.com/watchspence">Instagram</a>.
         </p>
     </div>
 </div>
 
+<div className="container mx-auto max-w-5xl">
+    <div className="prose prose-xl">
+        <h2>Latest</h2>
+        <PostsCards limit={6}/>
+    </div>
+</div>
+
+export const meta = {
+    title: "Matthew Spence",
+}
 export default ({ children }) => <MainLayout>{children}</MainLayout>

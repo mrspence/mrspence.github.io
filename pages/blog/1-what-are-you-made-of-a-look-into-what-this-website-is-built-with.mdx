@@ -1,0 +1,28 @@
+import PostLayout from "layouts/post"
+
+export const meta = {
+    link: "/blog/1-what-are-you-made-of-a-look-into-what-this-website-is-built-with",
+    title_short: "What are you made of: A dive into the tech behind this website",
+    title: "What are you made of | Website Stack | Blog | Matthew Spence",
+    description: "Every website is built using a list of technologies, so what does matt-spence.com use?",
+    backgroundColor: "#08c5ffff",
+    date: "20th, April, Spring 2020",
+}
+
+## Why this article?
+
+It's now almost customary for developers to explain what their new website is built with.
+
+But this website is different. It's not WordPress. Or Squarespace. Or any Content Management System even.
+
+[Skip to TLDR](#tldr)
+
+## Why not use a Content Management System (CMS)
+
+When writing web articles, it's often useful to have an editor that allows you to do bolding, italics, font sizing
+
+## TL;DR
+
+Github, GitHub Pages, React, Next.JS, MDX (Markdown), Tailwind JIT
+
+export default ({ children }) => <PostLayout meta={meta}>{children}</PostLayout>

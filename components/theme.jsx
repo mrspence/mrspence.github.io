@@ -1,4 +1,4 @@
-import { Component, createRef } from "react"
+import { Component, createRef, useState, useEffect } from "react"
 import Icon from '@mdi/react'
 import { mdiPaletteOutline } from '@mdi/js'
 import themes from "../config/themes.json"
@@ -9,12 +9,22 @@ export default class Theme extends Component
         super(props);
         this.state = {
             isPickingTheme: false,
-            currentTheme: Object.keys(themes)[0],
+            currentTheme: ( process.browser ? localStorage.getItem("currentTheme") : null ) ?? Object.keys(themes)[0],
             themes: themes,
         };
+
         this.themeRef = createRef();
         this.toggleThemePicker = this.toggleThemePicker.bind(this)
         this.handleClickOutsideHideThemePicker = this.handleClickOutsideHideThemePicker.bind(this)
+    }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext)
+    {
+        if (process.browser){
+            localStorage.setItem("currentTheme", nextState.currentTheme)
+        }
+
+        return true
     }
 
     componentDidMount()
@@ -92,7 +102,11 @@ export default class Theme extends Component
                 }
                 {/* Render inline theme changer */}
                 <div className={`relative`}>
-                    <button className={'relative rounded-full text-heading p-3 !outline-none ' + (this.state.isPickingTheme ? `shadow-inner`:`shadow`)} onClick={this.toggleThemePicker}>
+                    <button
+                        className={'relative rounded-full text-heading p-2 !outline-none ' + (this.state.isPickingTheme ? `shadow-inner`:`shadow`)}
+                        style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
+                        onClick={this.toggleThemePicker}
+                    >
                         <Icon size={1} path={mdiPaletteOutline} />
                     </button>
 

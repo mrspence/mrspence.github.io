@@ -1,12 +1,23 @@
 // import App from 'next/app'
+import { AnimateSharedLayout } from "framer-motion"
 import 'tailwindcss/tailwind.css'
-import '@tailwindcss/typography/dist/typography.css'
 import 'css/themes.css'
 
 function MyApp({ Component, pageProps }) {
-  return (
-      <Component {...pageProps} />
-  )
+
+    const copyHeadingLinkToClipboard = (event) => {
+        if (event.target.nodeName.substr(0,1) === "H" && event.target.id){
+            window.history.pushState(null, null, window.location.origin + window.location.pathname + "#" + event.target.id);
+        }
+    }
+
+    return (
+        <AnimateSharedLayout type="crossfade">
+            <div onClick={copyHeadingLinkToClipboard}>
+                <Component {...pageProps} />
+            </div>
+        </AnimateSharedLayout>
+    )
 }
 
 // Only uncomment this method if you have blocking data requirements for
