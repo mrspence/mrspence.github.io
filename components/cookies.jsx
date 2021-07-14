@@ -64,9 +64,9 @@ export default class Cookies extends Component
                     <div>
                         {
                             this.state.isCookiesEnabled ?
-                                <div>I use cookies to <Link href="/cookies-and-privacy"><a>anonymously see who my general audience is</a></Link> over time.</div>
+                                <div>I use cookies to <Link href="/cookies-and-privacy"><a>anonymously see</a></Link> who my general audience is over time.</div>
                                 :
-                                <div>Cookies disabled. Please consider enabling them to <Link href="/cookies-and-privacy"><a>help me know my audience better</a></Link>.</div>
+                                <div>Cookies disabled. Please consider enabling them to <Link href="/cookies-and-privacy"><a>help me</a></Link> know my audience better.</div>
                         }
                     </div>
                     <div>
