@@ -1,13 +1,24 @@
 import MainLayout from "layouts/main.js"
 import FormContact from "../components/form-contact";
-import { XxlContainer } from "./_container.mdx"
+import { XlContainer } from "./_container.mdx"
+import Cookies from "components/cookies"
 
-<XxlContainer>
+export const meta = {
+    title: "Contact | Matthew Spence",
+}
+
+<XlContainer>
 
 # Contact
 
+<div>
+    <div className="inline-block max-w-3xl">
+        <Cookies/>
+    </div>
+</div>
+
 <FormContact />
 
-</XxlContainer>
+</XlContainer>
 
-export default ({ children }) => <MainLayout>{children}</MainLayout>
+export default ({ children }) => <MainLayout meta={meta}>{children}</MainLayout>

@@ -1,0 +1,146 @@
+import PostLayout from "layouts/post"
+
+export const meta = {
+    title_short: "What I learnt building a Blog for free using Github Pages and Next.JS",
+    title: "Building a Blog for free using Github Pages and Next.JS | Tutorial | Matthew Spence",
+    description: "How you can create a free and cutting-edge performance Blog with Next JS and GitHub hosting...",
+    // must be 16:9, 4:3 or 1:1
+    // minimum 1200px wide
+    image: process.browser ? `//${location.host}/images/posts/1/1-hero.png` : null,
+    background: "#46c077ff",
+    borderColor: "#46c077ff",
+    date: "25th, April, Spring 2020",
+    publishedAt: "25-04-2020",
+}
+
+<img src="/images/posts/1/1-hero.png" alt="hero" />
+
+# Back story
+
+If you're like me, then at some point in your life you've also dreamed of creating a shiny, rich and valuable blog.
+If you also consider yourself a perfectionist, it feels almost like an *impossible* task.
+
+The colours, the theme, the technology stack the whole blog sits on...
+
+...and utterly key: content.
+
+Let me help you out here - the most important part is your written content. Fuck the look and feel of the blog for 5 seconds and EMBRACE the real value in a blog.
+
+Now I won't claim my blog is "pure value" (it is 😉), but by pumping out articles, you can begin to learn what even works - do not overthink it before you've begun!
+
+It would be great if I'd taken my own advice sooner... but here we are, 6 years later with a blog finally starting up and boy am I excited to see where this takes you and I.
+
+
+# Introduction
+
+In this article we will build a static blog framework with Next JS and GitHub Pages, using the same principles originally inspired by [Jekyll](https://jekyllrb.com/).
+
+I always admire how easy Jekyll makes it for beginners to begin a blog, while offering control for the more advanced developers.
+
+<div className="text-center pt-4 pb-8">
+    <img src="/images/posts/1/1-jekyll.png" alt="Jekyll" className="!mb-3 mx-auto rounded-lg" />
+    <small className="italic opacity-90"><a target="_blank" href="https://github.com/jekyll/jekyll">11,280+ commits</a>... wowsa</small>
+</div>
+
+However, recently I wanted to build a [new blogging website](https://matt-spence.com), and I was horrified with how *horrendously slow* it felt to compile with just 1 single page.
+
+Perhaps I had a misconfiguration affecting compile time, but after a play I decided to at least investigate more options.
+
+<div className="text-center py-8">
+    <img src="https://media.giphy.com/media/S8TsC0rUwf9xGA3Hx7/giphy.gif" alt="Googling..." className="mx-auto rounded-lg" />
+</div>
+
+See, I'm incredibly fickle when testing frameworks, languages and libs early on a project. They're supposed to speed up your development and create a magical experience.
+
+If it's the dawn of your project, now is your chance to easily switch the game.
+
+After some research into static site generation and weighing up a few ecosystems, enter Node JS.
+
+<div className="text-center py-8">
+    <img src="https://media.giphy.com/media/wHAqhMGRiXrufV5K86/giphy.gif" alt="Enter Node JS..." className="mx-auto rounded-lg" />
+</div>
+
+Amazon, Netflix, eBay, Reddit, LinkedIn, Tumblr, and PayPal [all use Node JS](https://www.similartech.com/technologies/nodejs).
+
+Tellingly, [PayPal saw a 35% speed-up](https://medium.com/paypal-tech/node-js-at-paypal-4e2d1d08ce4f) in average response time on its page after deploying Node JS.
+
+That was over 7 years ago and it was a small bunny back then. Now Node JS's ecosystem swings with quite the ~~chode~~, the largest on the planet.
+
+With the rise and maturing of Node JS, I became curious if in 2021 there was a new solution that still held the same values as Jekyll.
+
+As it turns out, with Node JS and the huge popularity of React combined, there is now a well oiled machine called Next JS where, among other powerful gems, static websites can be rapidly forged.
+
+<div className="text-center py-8">
+    <img src="/images/posts/1/1-whos-using-nextjs.png" alt="Who's using Next JS" className="!mb-2 mx-auto rounded-lg" />
+    <small>Who's using Next JS</small>
+</div>
+
+## But hold up, let me check: is this the right tech stack for you?
+
+Your time is valuable, rather like mine, so let me help you out here! ([Or skip to the good stuff](#why-next-js-and-github-pages))
+
+This tech stack is staggeringly **useful** for developers who want to showcase interactive works of art.
+
+It **is not for** those looking to just only pump out many text-only articles quickly to an audience.
+
+This stack is intended for you to "play god" and create a blogging website that truly brings your imagination to life.
+
+As a developer, you will need to be comfortable with:
+
+- [Git](https://git-scm.com/) and [GitHub](https://github.com/)
+- An IDLE editor
+- Your usual HTML, CSS, and particularly JavaScript / [Node JS](https://nodejs.org/en/)
+- [Markdown](https://www.markdownguide.org/getting-started/), if you want a quicker writing experience (optional)
+
+If this isn't you and you want a decent text/image based blog, do not despair!
+
+Drop this article because there's already a brilliant solution out there: check out
+Medium.com, which is currently [the fastest growing blogging platform](https://medium.com/). Plus the content value is beyond awesome.
+
+Beats WordPress. Then again, anything does.
+
+*FYI - sadly, I'm not paid or endorsed by Medium, yet - you'll find they're a superior platform with substance, and I'm a frequent reader!*
+
+## Why Next JS and Github Pages
+
+With any tech stack, you should ask, quite seriously, why. WHY.
+
+I'll tell you why we **should** use GitHub Pages:
+
+- It's free. I mean, that's pretty big. You can use Github Pages to host any static website right from a GitHub Repository. They also have really, [really generous and soft usage limits](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#usage-limits)
+- Free remote version source control
+- No databases, keepin' it simple
+
+I'll also praise why we **should** use Next JS:
+
+- Growing community support
+- Very quick to pickup with a digestible learning curve
+- Seriously speedy
+
+## Lets get started
+
+Right lets do it.
+
+### GitHub
+
+First, register your ass up to Github if you haven't already!
+
+Next, create a repository that's the same as your username. (this is a magical repository, as GitHub will tell you at the end).
+
+For example, my GitHub username is `mrspence`, so I'll also name the repisitory `mrspence`.
+
+Oh wait, I've already done it! This website runs on it right here: [https://github.com/mrspence/mrspence](https://github.com/mrspence/mrspence).
+
+Once you've gone through GitHub's repo setup steps, get a clone of your empty repo onto your machine: `git clone https://github.com/<username>/<repo>`.
+
+### Next JS
+
+Okay, now the fun really begins! Follow the steps below and you may also checkout the [Next JS documentation](https://nextjs.org) should you want to double-check their latest setup guide.
+
+1. Using NPM, install Next JS CLI globally. `npm install -g nextjs-cli`
+2. Then lets setup the project! `cd <your-repo-root-directory>`
+3. TODO
+4.
+
+
+export default ({ children }) => <PostLayout meta={meta}>{children}</PostLayout>

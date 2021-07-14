@@ -1,0 +1,55 @@
+import PostLayout from "layouts/post"
+
+export const meta = {
+    title_short: "Why everyone's ditching their old JS Chart Frameworks in 2021",
+    title: "Why everyone's ditching their old JS Chart Frameworks in 2021 | Writing about Tech | Matthew Spence",
+    description: "There are many great JS chart and graph frameworks for Web, so why is there growing interest in a new one?",
+    // must be 16:9, 4:3 or 1:1
+    // minimum 1200px wide
+    image: process.browser ? `//${location.host}/images/posts/2/2-charts-css-logo.svg` : null,
+    borderColor: "#4ec0a4ff",
+    background: "#4ec0a4ff",
+    date: "30th, April, Spring 2020",
+    publishedAt: "30-04-2020",
+}
+
+<a href="#solution-the-new-graph-framework">Skip to Solution: the new way</a>
+
+## The problem with heavy ass frameworks
+
+For complete clarity, by "heavy ass frameworks" we're including:
+
+* D3.js
+* Chart.js
+* Frappe Charts
+* *and Recharts, Toast UI Charts, and many more...*
+
+There's no doubt they all offer incredibly useful resources and visualisations, interactivity, and easy integration. MVP heaven.
+
+<div className="text-center pt-4 pb-8">
+    <img src="https://media.giphy.com/media/ietRAbr5SBBGJmSp5h/giphy.gif" alt="'But' gif" className="!mb-3 mx-auto rounded-lg" />
+</div>
+
+But their size is potentially their un-doing. All of these frameworks will force the developer to either sacrifice **performance** or **customisability**.
+
+### How is Performance sacrificed?
+
+In 2021, https://insights.stackoverflow.com/survey/2020#technology-web-frameworks-professional-developers2
+
+### How is Customisability sacrificed?
+
+
+
+## Solution: the new graph framework
+
+Our ideal graph framework should look gorgeous, be incredibly performant, and allow the developer to exactly match their client's brief.
+
+Enter, **Charts CSS**.
+
+<div className="text-center pt-4 pb-8">
+    <img src="/images/posts/2/2-charts-css-logo.svg" alt="Charts CSS Logo" className="!mb-3 mx-auto rounded-lg !max-w-md" />
+    <small>The animated logo of Charts CSS</small>
+</div>
+
+
+export default ({ children }) => <PostLayout meta={meta}>{children}</PostLayout>

@@ -1,9 +1,12 @@
+// const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     mode: 'jit',
     purge: [
         './layouts/**/*.{js,ts,jsx,tsx,mdx}',
         './pages/**/*.{js,ts,jsx,tsx,mdx}',
         './components/**/*.{js,ts,jsx,tsx,mdx}',
+        './tools/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     darkMode: true, // or 'media' or 'class'
     theme: {
@@ -26,7 +29,20 @@ module.exports = {
                 DEFAULT: {
                     css: {
                         color: theme("colors.copy"),
+                        lineHeight: '1.66 !important',
                         a: {
+                            color: theme("colors.copy")
+                        },
+                        strong: {
+                            color: theme("colors.copy")
+                        },
+                        i: {
+                            color: theme("colors.copy")
+                        },
+                        u: {
+                            color: theme("colors.copy")
+                        },
+                        b: {
                             color: theme("colors.copy")
                         },
                         h1: {
@@ -46,6 +62,26 @@ module.exports = {
                         },
                         h6: {
                             color: theme("colors.heading"),
+                        },
+                        'ol > li::before': {
+                            color: theme("colors.secondary"),
+                        },
+                        'ul > li::before': {
+                            backgroundColor: theme("colors.secondary"),
+                        },
+                         blockquote: {
+                            fontWeight: '400',
+                            fontStyle: 'normal',
+                            color: theme('colors.copy'),
+                            borderLeftWidth: '0.25rem',
+                            borderLeftColor: theme('colors.primary'),
+                            quotes: '',
+                        },
+                        'blockquote p:first-of-type::before': {
+                            content: '',
+                        },
+                        'blockquote p:last-of-type::after': {
+                            content: '',
                         },
                     }
                 }

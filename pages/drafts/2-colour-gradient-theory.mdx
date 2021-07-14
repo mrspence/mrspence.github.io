@@ -1,0 +1,48 @@
+import PostLayout from "layouts/post"
+import ColourWheel from "../../tools/colour-wheel"
+
+export const meta = {
+    title_short: "The gray dead zone ",
+    title: "How to get the perfect colour gradient for web | Web Dev Tool | Matthew Spence",
+    description: "A gradient between two colours often suffers with a horrible 'gray dead zone', use this tool to fix it...",
+    // must be 16:9, 4:3 or 1:1
+    // minimum 1200px wide
+    image: process.browser ? `//${location.host}/images/posts/1/1-hero.png` : null,
+    borderColor: "#25c6a3",
+    background: "linear-gradient(90deg, #25c6a3, #25c691, #26c67e, #26c76c, #26c75a, #27c748, #27c736, #2bc728, #3ec728, #51c828, #63c829, #76c829)",
+    date: "29th, May, Spring 2020",
+    publishedAt: "29-05-2020",
+}
+
+When creating a gradient between two colours, often a gray dead zone appears in the middle.
+
+See for yourself.
+
+<div className="max-w-xs w-full mx-auto my-12 rounded-lg shadow-lg py-20 px-4 text-center" style={{ background: "linear-gradient(to right, aqua, red)" }}>
+    <span className="!text-white text-xl">...Ewww</span>
+</div>
+
+I know. I know. Kill it with fire. 🔥
+
+
+
+<div className={"max-w-xs mx-auto"}>
+    <ColourWheel/>
+</div>
+
+- Read this article by CSS Tricks https://css-tricks.com/the-gray-dead-zone-of-gradients/
+- The tool was amazing, but I wanted to understand it further: lets build our own!
+- Building a colour wheel - https://medium.com/@bantic/hand-coding-a-color-wheel-with-canvas-78256c9d7d43
+    - Tech:
+        - HTML `<canvas/>`
+        - JS
+        - CSS
+    - Theory:
+        Generate a line that shows the colours in a correctly formed line, then bend it into a circle.
+    - Colour Theory:
+        We don't want to use RGB as it is "additive", instead we want to use HSV (Hue, Saturation Value) image.
+        However, canvas works with RGB, so we'll need to convert from HSV to RGB.
+    - Polar Coords!!! (what are polar coords) - convert
+
+
+export default ({ children }) => <PostLayout meta={meta}>{children}</PostLayout>

@@ -1,0 +1,91 @@
+import MainLayout from "layouts/main.js"
+import { XlContainer } from "./_container.mdx"
+import Cookies from "components/cookies"
+
+export const meta = {
+    title: "Cookies & Privacy | Matthew Spence",
+}
+
+<div className="text-center">
+    <div className="inline-block max-w-3xl">
+        <Cookies/>
+    </div>
+</div>
+
+<XlContainer>
+
+# Cookies & Privacy
+
+The requirement of spammy cookie popup notices could have been so easily avoided by popularising the ["Do Not Track (DNT)" flag](https://en.wikipedia.org/wiki/Do_Not_Track) in browsers...
+
+But alas, I'm in a country where every website must instead launch a huge cookie policy notice that visitors will
+blindly accept because WHO HAS TIME to read it all!
+
+Anyway, here's how I and potentially third parties use your cookies while enabled.
+
+> This website, alongside 0.001% of the internet, respects your Do Not Track flag, so if you have Do Not Track enabled, cookies were disabled from the moment you got here.
+
+</XlContainer>
+
+<XlContainer>
+
+## Summary of tracking on this website
+
+Trackers:
+
+* Google Analytics
+
+Tracks user behaviour across the website. This is anonymized, so you're safe Jane, I don't know who you are.
+
+*Imagine if your name was actually Jane... I would have had you for a moment there* 😉
+
+Google achieves this by using cookies on your browser that follow you from website to website. I only get to see data that's generated
+when you're on my website (matt-spence.com), so I have no idea you were browsing Facebook for 7 hours earlier.
+
+## Disabling cookies
+
+You can completely disable cookies by changing the settings on your browser (see your browser Help for how you do this).
+HOWEVER disabling cookies will affect and disable the functionality of this and many other websites that you visit.
+
+You can also change the "Privacy Tracking Mode" on your browser. Unfortunately, this wasn't standardized before cookie policy laws came in,
+so not every tracker or website respects this setting.
+
+> The good news is, this website does respect your Privacy Tracking Mode, also known as the "Do Not Track" flag.
+
+Lastly, you can opt out of cookie tracking with the cookie notices around this website. This is backwards however... to know if you requested
+to disable cookie tracking, we actually HAVE to SET a cookie that says as such! Seriously, there's no other reasonable way to achieve this.
+
+## Privacy Policy
+
+*We're no longer just talking about cookies.*
+
+This website doesn't record personally identifying information, except if:
+
+* You submit a form
+
+At this point, you choose what information you share.
+When you submit a form, you imply that it's okay for matt-spence.com to store your personal information and respond to you.
+
+If this changes, please send a followup submission on the contact page requesting your personal information to be deleted from storage.
+
+Your personal information may be stored by a third party. Your personal information will not knowingly be used by the third party for anything but storage.
+In the event we discover misuse of personal information by a third party, we will do our best to notify you and request the third party undo their behaviour.
+
+By submitting personal information on any form on matt-spence.com you hereby grant that matt-spence.com is not liable if a third party wrongfully processes your personal information.
+
+However, matt-spence.com has your back and will support you in every way reasonably possible in such an event.
+
+Furthermore, tracking by third parties (Google Analytics) may process your personal information by grouping your browsing activity with cookies or other technologies.
+This is beyond the control of matt-spence.com and as such you agree cannot be liable.
+
+## Other information collected
+
+The contact form is timestamped from start to end, showing when a visitor submitted the form and how long they took filling it out.
+
+## Is this page missing something important to you? Niggling question on your mind?
+
+If you have any questions of thoughts, please feel welcome to get in touch. 👋
+
+</XlContainer>
+
+export default ({ children }) => <MainLayout meta={meta}>{children}</MainLayout>

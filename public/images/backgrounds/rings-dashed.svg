@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 703 703" fill="none">
+    <defs>
+        <filter id="f1" x="0" y="0">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+        </filter>
+        <filter id="f2" x="0" y="0">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+        </filter>
+      </defs>
+    <circle cx="351.5" cy="351.5" r="155.722" stroke="currentColor" stroke-dasharray="3 10"/>
+    <circle opacity="0.8" cx="351.5" cy="351.5" r="220.815" stroke="currentColor" stroke-dasharray="3 3"/>
+    <circle opacity="0.6" cx="351.5" cy="351.5" r="285.907" stroke="currentColor" stroke-dasharray="3 3"/>
+    <circle opacity="0.4" cx="351.5" cy="351.5" r="351" stroke="currentColor" stroke-dasharray="3 3"/>
+</svg>

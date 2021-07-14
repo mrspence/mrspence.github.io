@@ -1,7 +1,15 @@
+/**
+TODO: Turn this monstrosity into split, categorized imports.
+ */
+
 @import url('//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 
 body {
     @apply bg-background min-h-screen min-w-full overflow-x-hidden overflow-y-scroll;
+}
+
+body > div {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Ubuntu", serif;
 }
 
 a, p, h1, h2, h3, h4, h5, h6, small {
@@ -45,7 +53,8 @@ body .card a.link-card:hover:active + .card-content, body .card a.link-card:focu
 
 body a:not(.link-simple):not(.link-card):before {
     content: '';
-    @apply absolute bottom-0 left-0 bg-primary w-full h-2;
+    @apply absolute bottom-0 left-0 bg-primary w-full;
+    height: 0.45em;
     transform: translateY(0.125em) scaleX(0);
     transform-origin: left;
     transition: transform 0.2s ease;
@@ -54,7 +63,8 @@ body a:not(.link-simple):not(.link-card):before {
 
 body a:not(.link-simple):not(.link-card):after {
     content: '';
-    @apply absolute bottom-0 left-0 bg-copy w-full h-2;
+    @apply absolute bottom-0 left-0 bg-copy w-full;
+    height: 0.45em;
     transform: translateY(0.125em);
     opacity: 0.1;
     z-index: -2;
@@ -70,7 +80,7 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 }
 
 body h1[id], body h2[id], body h3[id], body h4[id], body h5[id], body h6[id] {
-    @apply pointer-events-none;
+    @apply pointer-events-none pt-3;
 }
 
 body h1[id]:before, body h2[id]:before, body h3[id]:before, body h4[id]:before, body h5[id]:before, body h6[id]:before {
@@ -89,6 +99,14 @@ body h1[id]:focus:before, body h2[id]:focus:before, body h3[id]:focus:before, bo
 
 body, body p {
     @apply text-copy;
+}
+
+.prose img {
+    @apply block max-w-full w-auto h-auto;
+}
+
+.prose > ul > li > *:first-child, .prose > ul > li > *:last-child {
+    @apply my-0 !important;
 }
 
 .form-contact input, .form-contact textarea {
@@ -167,4 +185,8 @@ body, body p {
     .form-contact .error > div {
         @apply justify-end text-right;
     }
+}
+
+.prose ul li, .prose ol li {
+    @apply mt-0 mb-2 !important;
 }
