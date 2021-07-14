@@ -61,6 +61,9 @@ export default class MainLayout extends Component
                     {
                         this.props.meta.image ? <meta name="og:image" content={this.props.meta.image} /> : null
                     }
+
+                    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"/>
+
                     <script type="application/ld+json">{ this.getOrganisationSchema(this.state.router) }</script>
                     {
                         this.props.meta.schema ? <script type="application/ld+json">{ this.props.meta.schema(this.state.router) }</script> : null
