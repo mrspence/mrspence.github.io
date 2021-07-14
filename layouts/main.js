@@ -62,7 +62,14 @@ export default class MainLayout extends Component
                         this.props.meta.image ? <meta name="og:image" content={this.props.meta.image} /> : null
                     }
 
-                    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"/>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                    <link rel="preload" as="style" href="//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" />
+
+                    <link
+                        media="print" onload="this.onload=null;this.removeAttribute('media');"
+                        rel="stylesheet"
+                        href="//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+                    />
 
                     <script type="application/ld+json">{ this.getOrganisationSchema(this.state.router) }</script>
                     {
