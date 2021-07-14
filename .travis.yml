@@ -1,6 +1,8 @@
 language: node_js # Node.js based project
 node_js:
   - 14 # Level of Node.js to use
+env:
+  - NEXT_TELEMETRY_DISABLED=1 # disable Next JS telemetry
 cache:
   directories:
   - node_modules # Cache the node_modules folder for quicker build times
@@ -13,6 +15,7 @@ deploy:
   skip_cleanup: true # Prevents Travis from resetting the working directory made during the build
   github_token: $github_token # GitHub access token to use when pushing to the gh-pages branch
   local_dir: out # Directory to push to the gh-pages branch
+  fqdn: $fqdn # CNAME record to point custom domain
   on:
     # Only deploy when the build is on master or main branch - two common default branch names
     # If you're using a different branch name, add it here

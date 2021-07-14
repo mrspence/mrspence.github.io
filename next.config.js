@@ -16,6 +16,8 @@ module.exports = withMDX({
 
     pageExtensions: ['js', 'jsx', 'mdx'],
 
+    assetPrefix: '/',
+
     webpack(config)
     {
         config.module.rules.push({
@@ -26,8 +28,8 @@ module.exports = withMDX({
         return config
     },
 
-    i18n: {
-        locales: ["en-GB"],
-        defaultLocale: "en-GB",
-    },
+    // i18n: {
+    //     locales: ["en-GB"],
+    //     defaultLocale: "en-GB",
+    // },
 })
