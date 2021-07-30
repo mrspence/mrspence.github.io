@@ -6,6 +6,17 @@ body {
     @apply bg-background min-h-screen min-w-full overflow-x-hidden overflow-y-scroll;
 }
 
+/* default light theme */
+body {
+    --color-main: rgb(236 238 239);
+    --color-primary: rgb(255 51 95);
+    --color-secondary: rgb(67 169 163);
+    --color-background: rgb(236 238 239);
+    --color-copy: rgb(10 12 18);
+    --color-heading: rgb(55 58 60);
+    --shadow-rgb-raw: 0, 0, 0;
+}
+
 body > div {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Ubuntu", serif;
 }
