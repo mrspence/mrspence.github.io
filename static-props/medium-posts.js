@@ -31,7 +31,7 @@ export default async function getStaticProps()
                     title_short: mediumPost.title,
                     description: "",
                     publishedAt: mediumPost['atom:updated'],
-                    background: "var(--color-primary)",
+                    background: "rgb(255, 51, 95)",
                 },
             };
         }),
