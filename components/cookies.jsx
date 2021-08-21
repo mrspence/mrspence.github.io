@@ -59,8 +59,8 @@ export default class Cookies extends Component
     render()
     {
         const cookiesMessage = (
-            <div className="flex flex-wrap justify-center items-center space-x-4 py-8">
-                <div className="inline-block rounded-lg shadow px-6 py-4 text-xs mb-4">
+            <div className="flex flex-wrap justify-center items-center lg:space-x-4 py-8">
+                <div className="lg:inline-block rounded-lg shadow px-6 py-4 text-xs mb-4">
                     <div>
                         {
                             this.state.isCookiesEnabled ?
