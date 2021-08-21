@@ -28,6 +28,11 @@ module.exports = withMDX({
         return config
     },
 
+    publicRuntimeConfig: {
+        urlNoCorsProxy: "https://api.allorigins.win/get?url=",
+        urlMediumRSSFeed: "https://medium.com/feed/@mrspencehimself",
+    }
+
     // i18n: {
     //     locales: ["en-GB"],
     //     defaultLocale: "en-GB",

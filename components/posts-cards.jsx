@@ -31,12 +31,14 @@ export default class PostsCards extends Component
          */
         let posts = this.importAll(require.context("./../pages/writing", true, /\.\/.*\.mdx$/)).filter(post => post.link !== this.props?.excludeLink)
 
+        posts = posts.concat(this.props.mediumPosts || []);
+
         if (posts.length === 0){
             return (<div/>);
         }
 
         posts.sort((a, b) => {
-            return a.link > b.link ? -1 : 1
+            return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
         })
 
         let isMoreToShow = false
@@ -47,11 +49,10 @@ export default class PostsCards extends Component
             posts = posts.slice(0, this.props.limit)
         }
 
-
-
         const postsJSX = posts.length ? (<div className="flex flex-wrap -mx-2">
             {
                 posts.map((post, index) => {
+
                     const {link, meta, number} = post
 
                     return <article key={link} className={`card w-full md:max-w-sm mx-2 mb-4`}>

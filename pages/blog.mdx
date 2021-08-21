@@ -8,49 +8,33 @@ export const meta = {
     title: "Writing | Blog | Matthew Spence",
 }
 
-<div className="container max-w-2xl mx-auto py-12 md:py-20">
-<XlContainer>
+<div className="container max-w-2xl mx-auto py-12">
+    <XlContainer>
 
-<h1 className="lg:!text-8xl text-center mb-0">
-    Writing
-</h1>
+    <h1 className="lg:!text-8xl text-center !mb-0">Writing</h1>
 
-<p className="text-sm text-center text-heading">
-    There are <strong>{ require.context("./../pages/writing", true, /\.\/.*\.mdx$/).keys().length }</strong> written articles,
+    <div class="text-sm text-center text-heading">
+    There are <strong>{ require.context("./../pages/writing", true, /\.\/.*\.mdx$/).keys().length + props.mediumPosts.length }</strong> written articles,
     and <a target="_blank" href="https://github.com/mrspence/mrspence/blob/main/pages/drafts">{ require.context("./../pages/drafts", true, /\.\/.*\.mdx$/).keys().length } drafts</a>. <i>Astonishing...</i>
-</p>
-
-<div>
-    {
-        require.context("./../pages/writing", true, /\.\/.*\.mdx$/).keys().length === 0 ?
-            (
-                <div className="text-center prose mx-auto text-sm py-12">
-                    <p className="text-primary">
-                        "Wait, what do you mean 0 articles?"
-                    </p>
-                    <p>
-                        You're probably thinking: "this guy has <Link className="inline-block"><a href="/cookies-and-privacy">hand written a cookie policy</a></Link> but still has not published 1 article?
-                    </p>
-                    <p className="text-primary">
-                        They will come... I promise you that... 😉 I have not broadcasted this website yet, so consider yourself an early viewer! 🏅
-                    </p>
-                    <p>
-                        In the meantime, please feel welcome to <Link className="inline-block"><a href="/contact">drop me a question or two 👋</a></Link> and I'll make it my mission to help you!
-                    </p>
-                </div>
-            ) : ``
-    }
-</div>
-
-<div>
-    <div className="inline-block max-w-3xl">
-        <Cookies/>
     </div>
-</div>
 
-<PostsListings/>
+    <div>
+        <div className="inline-block max-w-3xl">
+            <Cookies/>
+        </div>
+    </div>
 
-</XlContainer>
+    <PostsListings mediumPosts={props.mediumPosts}/>
+
+    </XlContainer>
 </div>
 
 export default ({ children }) => <MainLayout meta={meta}>{children}</MainLayout>
+
+export const getStaticProps = async function() {
+    return {
+        props: {
+            ...await require("./../static-props/medium-posts").default(),
+        },
+    };
+}

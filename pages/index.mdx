@@ -29,8 +29,16 @@ export const meta = {
 
 <div className="container mx-auto pb-12">
     <div className="prose prose-xl max-w-5xl mx-auto">
-        <PostsCards limit={6}/>
+        <PostsCards limit={6} mediumPosts={props.mediumPosts} />
     </div>
 </div>
 
 export default ({ children }) => <MainLayout meta={meta}>{children}</MainLayout>
+
+export const getStaticProps = async function() {
+    return {
+        props: {
+            ...await require("./../static-props/medium-posts").default(),
+        },
+    };
+}

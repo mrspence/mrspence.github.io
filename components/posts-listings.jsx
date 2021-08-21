@@ -31,12 +31,14 @@ export default class PostsListings extends Component
          */
         let posts = this.importAll(require.context("./../pages/writing", true, /\.\/.*\.mdx$/)).filter(post => post.link !== this.props?.excludeLink)
 
+        posts = posts.concat(this.props.mediumPosts || []);
+
         if (posts.length === 0){
             return (<div/>);
         }
 
         posts.sort((a, b) => {
-            return a.link > b.link ? -1 : 1
+            return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
         })
 
         let isMoreToShow = false;
@@ -61,7 +63,7 @@ export default class PostsListings extends Component
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ duration: 0 }}
-                                        className="!text-primary !mb-0"
+                                        className="!text-primary !my-0 py-4"
                                     >{ meta?.title_short ?? 'No article title??' }</Motion.h2>
                                  </a>
                             </Link>
