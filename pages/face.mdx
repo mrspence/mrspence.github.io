@@ -1,0 +1,22 @@
+import MainLayout from "layouts/main.js"
+import { XlContainer } from "./_container.mdx"
+import Face from "components/face"
+
+export const meta = {
+    title: "Web GL Face | Work in Progress | Side Project | Matthew Spence",
+}
+
+<XlContainer>
+
+# Web GL face
+
+Playing around with rendering glTF (GL Transmission Format) models from [Blender](https://www.blender.org/) on a website through WebGL ([Three JS](https://threejs.org/)).
+
+Much work to be done on the model and animations, so for now the animation will just sit here on this hidden page until I have some free time to try and make my model less like its about to haunt your living nightmares... 😂
+
+
+<Face/>
+
+</XlContainer>
+
+export default ({ children }) => <MainLayout meta={meta}>{children}</MainLayout>

@@ -1,23 +1,28 @@
-// import App from 'next/app'
+import App from "next/app"
 import { AnimateSharedLayout } from "framer-motion"
 import 'tailwindcss/tailwind.css'
 import 'css/themes.css'
 
-function MyApp({ Component, pageProps }) {
+export default class MyApp extends App
+{
+    render()
+    {
+        const { Component, pageProps } = this.props
 
-    const copyHeadingLinkToClipboard = (event) => {
-        if (event.target.nodeName.substr(0,1) === "H" && event.target.id){
-            window.history.pushState(null, null, window.location.origin + window.location.pathname + "#" + event.target.id);
+        const copyHeadingLinkToClipboard = (event) => {
+            if (event.target.nodeName.substr(0,1) === "H" && event.target.id){
+                window.history.pushState(null, null, window.location.origin + window.location.pathname + "#" + event.target.id);
+            }
         }
-    }
 
-    return (
-        <AnimateSharedLayout type="crossfade">
-            <div onClick={copyHeadingLinkToClipboard}>
-                <Component {...pageProps} />
-            </div>
-        </AnimateSharedLayout>
-    )
+        return (
+            <AnimateSharedLayout type="crossfade">
+                <div onClick={copyHeadingLinkToClipboard}>
+                    <Component {...pageProps} />
+                </div>
+            </AnimateSharedLayout>
+        )
+    }
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -31,6 +36,4 @@ function MyApp({ Component, pageProps }) {
 //
 //   return { ...appProps }
 // }
-
-export default MyApp
 
