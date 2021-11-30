@@ -151,7 +151,7 @@ export default class MainLayout extends Component
                                     target="_blank"
                                 ><Icon path={mdiTwitter} className="inline-block w-8 h-8 xl:w-4 xl:h-4" /><span className="hidden xl:inline-block"> Twitter</span></a>
                             </Link>
-                            <Link href="https://instagram.com/watchspence">
+                            <Link href="https://instagram.com/mrspencehimself">
                                 <a
                                     className="mx-2 mb-4 text-base"
                                     target="_blank"
