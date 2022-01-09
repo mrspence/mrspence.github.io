@@ -22,6 +22,10 @@ module.exports = withMDX({
             use: ["@svgr/webpack"],
         })
 
+        config.resolve.fallback = {
+            fs: false,
+        }
+
         return config
     },
 

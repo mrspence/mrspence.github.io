@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "cross-env node node_modules/next/dist/bin/next dev",
+    "sitemap": "cross-env NODE_ENV=production node build-scripts/sitemap.js",
+
     "build": "cross-env NODE_ENV=production node node_modules/next/dist/bin/next build",
-    "export": "cross-env NODE_ENV=production node node_modules/next/dist/bin/next export",
+    "export": "cross-env NODE_ENV=production node node_modules/next/dist/bin/next export && npm run sitemap",
     "start": "cross-env node node_modules/next/dist/bin/next start"
   },
   "dependencies": {
