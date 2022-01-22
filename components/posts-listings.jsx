@@ -54,7 +54,7 @@ export default class PostsListings extends Component
                 posts.map((post, index) => {
                     const {link, meta} = post
 
-                    return <article key={link} className={`w-full mb-4`}>
+                    return <article key={link} className={`w-full mb-4 ` + (index + 1 < posts.length ? 'border-b border-gray-300':'')}>
                         <div className="relative">
                             <Link href={link}>
                                  <a className="link-simple">
@@ -63,7 +63,7 @@ export default class PostsListings extends Component
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ duration: 0 }}
-                                        className="!text-primary !my-0 py-4"
+                                        className="!text-primary !my-0 py-4 !text-lg lg:!text-3xl"
                                     >{ meta?.title_short ?? 'No article title??' }</Motion.h2>
                                  </a>
                             </Link>

@@ -62,11 +62,12 @@ export default class MainLayout extends Component
                         this.props.meta.image ? <meta name="og:image" content={this.props.meta.image} /> : null
                     }
 
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
                     <link rel="preload" as="style" href="//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" />
 
                     <link
-                        media="print" onload="this.onload=null;this.removeAttribute('media');"
+                        media="print"
+                        onLoad="this.onload=null;this.removeAttribute('media');"
                         rel="stylesheet"
                         href="//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
                     />
@@ -90,10 +91,12 @@ export default class MainLayout extends Component
                     >
                         <nav
                             className={
-                                "fixed md:relative top-0 left-0 w-full h-full md:w-auto md:h-auto bg-background md:bg-transparent flex flex-col justify-center items-center md:block space-y-6 md:space-y-0 md:space-x-4 mr-6 z-50 " +
+                                "fixed md:relative top-0 left-0 w-full h-full md:w-auto md:h-auto bg-white md:bg-transparent flex flex-col justify-center items-center md:block space-y-6 md:space-y-0 md:space-x-4 mr-6 z-50 " +
                                 ( this.state.isMobileNavigationVisible ? "" : "!hidden md:!block" )
                             }
                         >
+                            <div className="md:hidden absolute top-0 left-0 w-full h-full bg-background pointer-events-none"></div>
+
                             <Link href="/">
                                 <a className="text-xl md:text-base"><span className="font-bold text-heading">01.</span> Home</a>
                             </Link>
@@ -103,15 +106,17 @@ export default class MainLayout extends Component
                             <Link href="/contact">
                                 <a className="text-xl md:text-base"><span className="font-bold text-heading">03.</span> Contact</a>
                             </Link>
-                            <button
-                                className="md:hidden mt-8 text-center"
-                                onClick={() => {this.setIsMobileNavigationVisible(false)}}
-                            >
-                                <Icon size={1} path={mdiClose} className="inline-block" />
-                                <div>
-                                    Close Menu
-                                </div>
-                            </button>
+                            <div className="md:hidden pt-12">
+                                <button
+                                    className="inline-flex md:hidden text-center opacity-75"
+                                    onClick={() => {this.setIsMobileNavigationVisible(false)}}
+                                >
+                                    <Icon size={1} path={mdiClose} className="inline-block" />
+                                    <div className="pl-4">
+                                        Close Menu
+                                    </div>
+                                </button>
+                            </div>
                         </nav>
 
                         <button

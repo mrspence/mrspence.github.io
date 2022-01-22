@@ -8,15 +8,10 @@ export const meta = {
     title: "Writing | Blog | Matthew Spence",
 }
 
-<div className="container max-w-2xl mx-auto py-12">
+<div className="container max-w-xl mx-auto py-12">
     <XlContainer>
 
-    <h1 className="lg:!text-8xl text-center !mb-0">Writing</h1>
-
-    <div class="text-sm text-center text-heading">
-    There are <strong>{ require.context("./../pages/writing", true, /\.\/.*\.mdx$/).keys().length + props.mediumPosts.length }</strong> written articles,
-    and <a target="_blank" href="https://github.com/mrspence/mrspence/blob/main/pages/drafts">{ require.context("./../pages/drafts", true, /\.\/.*\.mdx$/).keys().length } drafts</a>. <i>Astonishing...</i>
-    </div>
+    <h1 className="lg:!text-8xl text-center !mb-0 pb-8">Writing</h1>
 
     <div>
         <div className="inline-block max-w-3xl">
@@ -24,7 +19,9 @@ export const meta = {
         </div>
     </div>
 
-    <PostsListings mediumPosts={props.mediumPosts}/>
+    <div className="lg:text-center">
+        <PostsListings mediumPosts={props.mediumPosts}/>
+    </div>
 
     </XlContainer>
 </div>

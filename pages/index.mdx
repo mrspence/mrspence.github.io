@@ -8,18 +8,16 @@ export const meta = {
     title: "Matthew Spence",
 }
 
-<div className="container mx-auto max-w-5xl flex items-center min-h-[22rem] md:py-16">
+<div className="container mx-auto max-w-5xl flex items-center min-h-[8rem] lg:min-h-[22rem] md:py-16">
     <div>
         <div className="pb-4">
-            <small className="text-secondary uppercase text-sm font-bold">Good {(new Date).getHours() >= 12 ?  ( (new Date).getHours() >= 17 ? 'evening' : 'afternoon' ) : 'morning'}, This is Spence</small>
+            <small className="text-secondary uppercase text-sm font-bold">Matthew Spence</small>
         </div>
-        <h1 className="text-3xl md:text-6xl lg:!text-8xl lg:pb-8">
-            I <Typist sentences={["create", "code",]} pauseTime={"10000"} showCursor={false} startDelay={"200"} /><span className="text-secondary"><Typist sentences={["websites. ", "apps. ", "dreams. ",]} pauseTime={"5000"} startDelay={"800"} showCursor={false} /></span>
+        <h1 className="text-4xl md:text-6xl lg:!text-8xl">
+            <Typist sentences={["Creating", "Coding",]} pauseTime={"10000"} showCursor={false} startDelay={"200"} /><span className="text-secondary"><Typist sentences={["tech. ", "apps. ", "dreams. ",]} pauseTime={"5000"} startDelay={"800"} showCursor={false} /></span>
         </h1>
-        <p className="py-8 md:text-xl text-heading">
-            Creating business value, through <i>strategic</i> use of digital technology.
-            <br/>
-            I also <Link href="/blog"><a>write about the digital world</a></Link> and post personal stories on <a target="_blank" href="https://instagram.com/watchspence">Instagram</a>.
+        <p className="py-8 md:text-xl text-heading !leading-tight">
+            <Link href="/blog"><a>Writes</a></Link> and <Link href="/contact"><a>consults</a></Link> about <i>strategic</i> leveraging of digital tech.
         </p>
         <div>
             <div className="inline-block max-w-3xl">

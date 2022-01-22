@@ -90,7 +90,7 @@ export default class FormContact extends Component
                     <input
                         type="text"
                         id="name"
-                        placeholder="John Longbottom"
+                        placeholder="John Augustus"
                         onChange={handleChange}
                         onBlur={Object.keys(errors).length ? handleBlur : null}
                         value={values.name}
@@ -110,7 +110,7 @@ export default class FormContact extends Component
                     <input
                         type="email"
                         id="email"
-                        placeholder="john.longbottom@gmail.com"
+                        placeholder="j.augustus@company.com"
                         onChange={handleChange}
                         onBlur={Object.keys(errors).length ? handleBlur : null}
                         value={values.email}

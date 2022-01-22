@@ -43,7 +43,7 @@ body .card a.link-card {
 }
 
 body .card .card-content {
-    @apply p-3 rounded-lg;
+    @apply p-6 rounded-lg;
     transform: translateY(0);
     transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
@@ -123,44 +123,20 @@ body, body p {
 }
 
 .btn-submit {
-    @apply relative inline-block font-bold px-8 py-2 text-secondary transform;
+    @apply relative inline-block font-bold px-8 py-2 text-secondary border-2 border-secondary transform transition duration-200;
+}
+
+.btn-submit:hover, .btn-submit:focus {
+    @apply bg-secondary text-white -translate-y-1;
+}
+
+.btn-submit:hover:active, .btn-submit:focus:active {
+    @apply translate-y-0 duration-100;
 }
 
 .btn-submit:disabled {
     @apply pointer-events-none;
     filter: contrast(0);
-}
-
-.btn-submit:before {
-    content: '';
-    @apply absolute bottom-0 right-0 w-full h-full transform scale-y-[0.4] scale-x-[0.7] translate-y-4 origin-bottom-right opacity-30 z-[-1];
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
-}
-
-.btn-submit:not(:disabled):hover:before, .btn-submit:not(:disabled):focus:before {
-    @apply bg-secondary translate-x-6 scale-x-[0.6];
-}
-
-.btn-submit:active:before, .btn-submit:active:before, .btn-submit:disabled:before {
-    @apply bg-secondary translate-x-6 scale-x-[0];
-    transition-duration: 0.1s;
-}
-
-.btn-submit:after {
-    content: '';
-    @apply absolute top-0 left-0 w-full h-full transform scale-y-[0.2] scale-x-[0.3] origin-top-left opacity-30 z-[-1];
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
-}
-
-.btn-submit:not(:disabled):hover:after, .btn-submit:not(:disabled):focus:after {
-    @apply bg-secondary -translate-x-3;
-}
-
-.btn-submit:active:after, .btn-submit:active:after, .btn-submit:disabled:after {
-    @apply bg-secondary scale-x-[0];
-    transition-duration: 0.1s;
 }
 
 .form-contact .error {

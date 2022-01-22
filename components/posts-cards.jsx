@@ -57,20 +57,20 @@ export default class PostsCards extends Component
 
                     return <article key={link} className={`card w-full md:max-w-sm mx-2 mb-4`}>
                         <Link href={link}>
-                             <a className="link-card"><span className="sr-only">Read more {meta?.title_short}</span></a>
+                             <a target="_blank" className="link-card"><span className="sr-only">Read more {meta?.title_short}</span></a>
                         </Link>
                         <div className="card-content min-h-full flex flex-col justify-between overflow-hidden" style={{background: meta?.background}}>
-                            <small className="text-white">
-                                #{ "00".substring(0, 2 - ("" + number).length ) + number }
-                            </small>
                             <Motion.h3
                                 layoutId={this.props.isAnimated === false ? null : `post-${link}`}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0 }}
-                                className="!text-white"
+                                className="!text-white !mt-0"
                             >{ meta?.title_short ?? 'No article title??' }</Motion.h3>
-                            <p className="text-white text-base">{ meta?.description }</p>
+
+                            <small className="text-white opacity-75">
+                                #{ "00".substring(0, 2 - ("" + number).length ) + number }
+                            </small>
                         </div>
                     </article>
                 })

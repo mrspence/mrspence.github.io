@@ -22,8 +22,15 @@ export default async function getStaticProps()
 
     console.log(`Found ${posts.length} Medium posts! Latest post: ${posts[0].title}`);
 
+    const gradients = [
+        'linear-gradient(10deg, rgba(255, 51, 95, 1) 40%, rgb(255 51 117))',
+        'linear-gradient(10deg, rgb(67, 169, 163) 60%, rgb(86, 215, 161))',
+        'linear-gradient(10deg, rgba(10, 12, 18, 1) 60%, rgb(53, 56, 66))',
+        'linear-gradient(10deg, rgba(48, 152, 237, 1) 60%, rgb(48, 193, 237))',
+    ];
+
     return {
-        mediumPosts: posts.map(mediumPost => {
+        mediumPosts: posts.map((mediumPost, index) => {
             return {
                 link: mediumPost.link,
                 number: "Medium",
@@ -31,7 +38,7 @@ export default async function getStaticProps()
                     title_short: mediumPost.title,
                     description: "",
                     publishedAt: mediumPost['atom:updated'],
-                    background: "rgb(255, 51, 95)",
+                    background: gradients[index % gradients.length],
                 },
             };
         }),
