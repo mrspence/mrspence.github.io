@@ -20,16 +20,11 @@ export const meta = {
         <p className="py-8 md:text-xl text-heading !leading-tight">
             <Link href="/blog"><a>Writes</a></Link> and <Link href="/contact"><a>consults</a></Link> about <i>strategic</i> leveraging of digital tech.
         </p>
-        <div>
-            <div className="inline-block max-w-3xl">
-                <Cookies/>
-            </div>
-        </div>
     </div>
 </div>
 
-<div className="container mx-auto pb-12">
-    <div className="prose prose-xl max-w-5xl mx-auto">
+<div className="container max-w-5xl mx-auto pb-12">
+    <div className="prose prose-xl max-w-5xl -mx-2">
         <PostsCards limit={6} mediumPosts={props.mediumPosts} />
     </div>
 </div>

@@ -76,8 +76,6 @@ export default class PostLayout extends Component
                             <div className="md:text-right">
                                 <Link href="/blog"><a className="text-sm opacity-80 hover:opacity-100 focus:opacity-100">Back to posts</a></Link>
                             </div>
-
-                            <Cookies/>
                         </XlContainer>
                    </div>
                 </div>

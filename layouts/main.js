@@ -78,7 +78,7 @@ export default class MainLayout extends Component
                     }
                 </Head>
 
-                <header className="container max-w-5xl mx-auto flex justify-between items-center py-12 p-4">
+                <header className="container max-w-5xl mx-auto flex justify-between items-center py-12 p-4 lg:px-2">
                     <Link href="/">
                         <a className="inline-block relative font-bold text-secondary ml-10 text-sm md:text-base">
                             <img className={"absolute top-0 left-0 inline-block w-[2rem] rounded-full transform -translate-y-1 -translate-x-10"} src="/images/profile.jpg" alt="Matt Spence profile image"/>

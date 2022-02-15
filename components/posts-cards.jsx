@@ -49,7 +49,7 @@ export default class PostsCards extends Component
             posts = posts.slice(0, this.props.limit)
         }
 
-        const postsJSX = posts.length ? (<div className="flex flex-wrap -mx-2">
+        const postsJSX = posts.length ? (<div className="flex flex-wrap">
             {
                 posts.map((post, index) => {
 
