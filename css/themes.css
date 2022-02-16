@@ -172,6 +172,22 @@ body, body p {
     }
 }
 
+.prose p img {
+    @apply w-full mx-auto max-w-full w-auto h-auto object-contain mb-20;
+}
+
+.prose p:not(:first-child) img {
+    @apply mt-20;
+}
+
+.prose ul, .prose ol {
+    @apply py-4 !important;
+}
+
 .prose ul li, .prose ol li {
-    @apply mt-0 mb-2 !important;
+    @apply mt-0 mb-6 !important;
+}
+
+.prose hr {
+    border-color: rgba(100, 100, 100, 0.3);
 }

@@ -1,0 +1,157 @@
+import PostLayout from "layouts/post"
+
+export const meta = {
+    title_short: "Developers: Your Git will change in 2022, with Dura",
+    title: "Developers: Your Git will change in 2022, with Dura | Insight | Matthew Spence",
+    description: "Never lose any code change, even uncommitted...",
+    // must be 16:9, 4:3 or 1:1
+    // minimum 1200px wide
+    image: process.browser ? `//${location.host}/images/medium/1__3mPgyJSMIAIqwA1W__opZjA.png` : null,
+    borderColor: "#43a9a3",
+    background: "#43a9a3",
+    date: "8th, Jan, 2022",
+    publishedAt: "08-01-2022",
+}
+
+Never lose _any_ code change, even uncommitted…
+
+![](/images/medium/1__3mPgyJSMIAIqwA1W__opZjA.png)
+
+Let me introduce you to what I believe will become a very popular tool in any developer’s belt, who actively uses Git.
+
+I saw this pop up last night and knew immediately I’d want to share it with you all.
+
+Launched only 8 days before publishing this article, this tool has already acquired 3,000 stars on GitHub.
+
+It’s called Dura.
+
+## Dura’s Creator
+
+![](/images/medium/1__q__pr3NCuWgXDeADI__U5Tqg.png)
+
+[Tim Kellog](https://timkellogg.me) is a highly active [contributor to Open Source projects](https://github.com/tkellogg). He previously worked at AWS, and now operates [KenSci](https://www.kensci.com/) with a ‘team of doctors and scientists' to leverage AI applications for the healthcare industry.
+
+There’s [so much more](https://timkellogg.me/blog) I could include, it’s always impossible to summarize anyone’s public identity and works in a single paragraph and I want to keep our focus on Dura. That said, I would certainly encourage checking out his [Twitter](https://twitter.com/kellogh) to keep up-to-date with his latest work.
+
+## So, what is Dura?
+
+Glad you asked!
+
+Dura allows you at any point to revert your Git repository to a previous moment in time, _even if you haven’t committed._
+
+Read that again. Let it _sink_ in…
+
+![](/images/medium/0__5__kOHNJrIyU__1rmJ.gif)
+
+### Well wait a second, don’t code editors do this?
+
+Well, code editors often autosave individual files, whereas Dura allows you to revert your _entire_ repository at once.
+
+Changed many files in repository within the last hour, uncommitted, and you need to go back? Well you could use your editor and go one-by-one reverting… or Dura can do that hard work for you!
+
+### What other scenarios does this solve?
+
+Dura helps you recover un-committed changes to code:
+
+*   Undo history became too long or even capped and you can’t get back to a previously uncommitted state.
+*   Computer crashed, editor lost previous changes.
+*   CTRL+Z history lost because you accidentally closed the file from mis-clicking the wrong X at the top of your screen…
+*   Editor’s autosaving missed out a key frame…
+
+I like how Dura puts it:
+
+> With Dura “you can revert to ‘4 hours ago’ instead of ‘hit Ctrl-Z like 40 times or whatever’. **Finally, some sanity.**” - readme introduction, Dura, GitHub
+
+## How does Dura work?
+
+![](/images/medium/1__V__ZymooA__Ey1FEFbM0I4oQ.png)
+
+Underneath it all, Dura uses your Git to its full potential. It is a background process that commits every change you make when saving a file. It does this _without_ impacting your existing HEAD, branch, or staged files.
+
+Dura monitors every file change within the repo’s folder and then creates a Dura-managed timestamped Git branch correlating to the update. Dura checks for changes efficiently, every 5 seconds or so.
+
+## How to use Dura
+
+It’s very simple to use, as all good tech is.
+
+### Start Dura
+
+With Dura installed (see the end of article), you start Dura with this command:
+
+```
+$ dura serve &
+```
+
+This will run Dura in the background.
+
+### Choose repositories to watch
+
+Dura won’t watch all your git repositories by default, only god knows how many you might have!
+
+Instead, you tell it which repository you’re currently working on with the following command:
+
+```
+$ cd /home/repo # Go to the repo's top directory...  
+$ dura watch
+```
+
+### Oh Snap! Let’s go back
+
+Underneath Dura is using Git. So to recover a previous ‘uncommitted’ code change, perhaps from 40 minutes ago, you simply pick the suitable Dura timestamp.
+
+I say uncommitted in quotes above, as Dura _is actually committing into a Dura git branch_ on your behalf. This is the magic that allows you to go back!
+
+Here are the 3 steps to recovering to a previous timestamp:
+
+1.  Get the Dura git branch name that contains uncommitted changes:  
+     `echo "dura-$(git rev-parse HEAD)"`
+2.  Run `git log [dura-branch-name]`to see changes that Dura has tracked, to find your preferred timestamp. Copy the hash of the Dura commit.
+3.  Ask git to switch to that Dura commit instead!
+
+```
+$ THE_HASH=YOUR_TARGET_DURA_COMMIT_HASH
+
+$ git reset HEAD --hard
+# Or, if you don't trust dura yet, `git stash`
+
+# get the changes into your working directory
+$ git checkout $THE_HASH
+
+# These commands reset HEAD back to master, with changes uncommitted
+$ git checkout -b temp-branch
+$ git reset master
+$ git checkout master
+$ git branch -D temp-branch
+```
+
+Now, as a developer, I do find that the last step is quite verbose and the new community at Dura is working together to find a suitable, quicker solution. However, I would still argue that the risk matters that Dura answers are worth the few extra steps.
+
+As a precaution, in case your repo has unusual steps, you should research each of the above commands first so you understand what they are doing.
+
+## Installing Dura
+
+1.  I would recommend reading my note on ‘**Should you install Dura yet?’** further below first. At the time of writing, Dura is in the prototype phase.
+2.  Then, when you’re ready, follow the suitable README install steps for your OS on Dura’s homepage.
+3.  Maintaining Open Source projects is hard work, please do drop a GitHub star on this project if you appreciate Dura’s direction!
+
+[Visit Dura’s Homepage: How to install Dura](https://github.com/tkellogg/dura) 🤛
+
+![](/images/medium/1__pOa22pKV0cKTzKZz70DebQ.png)
+
+## Should you Install Dura yet?
+
+I advise my clients every day on making suitable decisions regarding digital technology. I do not know your situation, so I can’t be responsible for your choice, however, I would recommend considering the following below.
+
+At the time of writing this article, Dura has only been released 8 days ago, on the 1st January 2022. It has come a long long way in just 8 days and with the growing community you can see already, I believe it will quite quickly become more stable.
+
+I would recommend trying Dura out for your **non-critical** Git repositories and with time, perhaps a few months, Dura will become stable enough for production use. I will certainly update this article when my team and I do!
+
+This is just one developer’s opinion though, I would certainly recommend checking this [incredible Open Source project out today](https://github.com/tkellogg/dura) and giving the author as much support as you can!
+
+If you’re using Dura for production use or have further comments, please do drop them down below - I’ll be interested to see what you think!
+
+---
+
+_Read next_: how [Charts CSS](https://medium.com/@mrspencehimself/charts-css-replacing-traditional-js-charting-libraries-in-2021-f7417540c5d0) improves performance, control of design, and accessibility of your charts on the web.
+
+export default ({ children }) => <PostLayout meta={meta}>{children}</PostLayout>

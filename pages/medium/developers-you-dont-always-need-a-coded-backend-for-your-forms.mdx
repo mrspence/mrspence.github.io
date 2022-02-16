@@ -1,0 +1,119 @@
+import PostLayout from "layouts/post"
+
+export const meta = {
+    title_short: "Developers: you don’t always need a coded backend for your forms",
+    title: "Developers: you don’t always need a coded backend for your forms | Insight | Matthew Spence",
+    description: "With the rising popularity of managed services in all areas of tech, we’ll explore a useful method of offsetting the backend of your...",
+    // must be 16:9, 4:3 or 1:1
+    // minimum 1200px wide
+    image: process.browser ? `//${location.host}/images/medium/1__Vu__Q1c8FDNRWdWlFnHBsoA.png` : null,
+    borderColor: "#43a9a3",
+    background: "#43a9a3",
+    date: "29th, Aug, 2021",
+    publishedAt: "29-08-2021",
+}
+
+![](/images/medium/1__Vu__Q1c8FDNRWdWlFnHBsoA.png)
+
+Websites are elaborate.
+
+Business requirements. User Journeys. Wireframes. Design…
+
+Development. Tech stacks. Coded frontends. Coded backends. Changing requirements. Maintenance…
+
+![](/images/medium/1__fGSmfewHrExhmkaRgGNzkQ.png)
+
+It can get pretty complicated relatively quickly, right? But there’s always new ways to help make it easier.
+
+In this article, **we’ll focus on how you can speed up development** by reducing or removing backend development for forms, so you can re-allocate resources on what matters most: the visual front-end your customers actually see.
+
+_This article is split in 3 easy steps_:
+
+*   **What is a backend and what isn’t?**   
+    (_5 second read_)
+*   **When do you need a backend for your website?**   
+    (_30 second read_)
+*   **How you can ditch coding the backend for your forms**   
+    (_30 second read_)
+
+> This article assumes you have limited knowledge of Jamstack. If that’s not true and you’re a legendary expert wizard at Jamstack, you may still find hidden powers in the last step for replacing your website forms!
+
+## What is a backend and what isn’t?
+
+A backend normally refers to a server-side area of your website, with responsibilities such as:
+
+*   Loading dynamic pages
+*   Processing and validating form submissions
+*   Acting as a data layer for your website; collecting and reporting data
+
+A _frontend_ is essentially anything your web visitor can see, experience and interact with using their mouse or keyboard, whereas everything else that typically involves saving or loading data, _like hitting that tempting Clap button in this article_, requires a server somewhere to process such a request.
+
+So a _backend_ typically handles and manages data for your website.
+
+![](/images/medium/0__sutLKhvAALg__wZTk.png)
+
+## When do you need a coded backend?
+
+This question is not black and white.
+
+For many, it is tempting to always build a backend for your website, in a preventative way. “_We may need one in the future so we WILL build one_”.
+
+There is a better alternative that takes up less development time when building _bespoke,_ quality websites, pulling from [concepts of Jamstack](https://jamstack.org/).
+
+![](/images/medium/0__qYEysNCr2UxuSCIc.jpg)
+
+If you build your frontend to [consume an API](https://jamstack.org/what-is-jamstack/), instead of being tightly coupled like WordPress, then you will give yourself the ability to either use “backend” APIs from third parties **or** build your own backend should you _later_ need one.
+
+Think about it. This saves you _so much time_ that can be better invested in what your website’s customers will actually see and play with!
+
+You can utilize third party APIs where you _don’t have to maintain the backend._
+
+You can even have your website partially consume your own and third party APIs during a transitional period towards adding more backend functionality!
+
+## How you can ditch coding the backend for your forms
+
+### Use a free backend API instead
+
+We have briefly touched on that fact that a “Jamstack” website consumes APIs instead of directly being loaded with a backend.
+
+By consuming an API, a frontend website you have built can actually use a backend built by a third party.
+
+### One recommended API service: Basin
+
+There are many API services out there that specialize in taking the workload off of your backend (pun intended), but the one I actively use today for my own website is Basin.
+
+![](/images/medium/1__Lm0GoVfkFUNGaZ0jYqfcyQ.png)
+
+Basin is a backend provider that specializes in providing you with an [API to save form submissions.](https://usebasin.com/?via=spence) They have a free offering that I still use today! They also offer scalable packages too, should you eventually need one.
+
+![](/images/medium/1__n6l__O66toxxpuSVX6TkZhA.png)
+
+Basin is mostly no-code, which means it only takes you a few minutes to setup a fully functional backend to handle your website forms.
+
+It asks you:
+
+1.  What data do you need stored?
+2.  What structure do you want it saved as?
+3.  How do you want to be notified of a form submission?
+
+Then, once you’ve setup the no-code backend, you simply point your website forms to their endpoint. Here’s a basic example:
+
+![](/images/medium/1__G8bc0__ECnvwl1tE3lcr3yQ.png)
+
+Basin also supports Google ReCaptcha, Akismet, and Honeypots so you can make sure your form’s don’t accept spam.
+
+Lastly, Basin is free to get started with, offering 100 submissions a month for free. This is certainly adequate for many contact us forms. However, if you website is booming and you need more than 100, then with your new business pouring in you’ll find their next package offers 1,000 submissions for only $8.00 a month. Pretty cheap!
+
+Affiliate link to Basin: [usebasin.com/?via=spence](https://usebasin.com/?via=spence)
+
+### There’s much more than just Basin out there too…
+
+At the moment, there’s a surplus of third party APIs you can use to both render information on your frontend and save data on backends you no longer have to maintain.
+
+Depending on your website requirements, these APIs may be a useful game changer to keep your time and hosting costs low!
+
+---
+
+_Read more_: Learn how there’s an easier way for you to wireframe, design and build digital products that [fulfils your client’s vision](https://medium.com/@mrspencehimself/is-there-an-easier-way-to-wireframe-design-build-digital-products-that-fulfils-a-clients-vision-4f964384e921).
+
+export default ({ children }) => <PostLayout meta={meta}>{children}</PostLayout>

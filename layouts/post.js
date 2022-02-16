@@ -58,23 +58,25 @@ export default class PostLayout extends Component
                 <div className="pb-8 md:pb-16">
                    <div className="lg:flex items-center">
                         <XlContainer>
-                            <div>
-                                <div className="inline-block mb-8 lg:mb-16 border-b-4 pl-2 pr-6 lg:pr-12" style={{ borderColor: this.props.meta.borderColor }}>
-                                    <small className="text-sm leading-none">{this.props.meta.date}</small>
+                            <div className="prose prose-lg lg:prose-xl">
+                                <div>
+                                    <div className="inline-block mb-12 lg:mb-16 border-b-4 pl-2 pr-6 lg:pr-12" style={{ borderColor: this.props.meta.borderColor }}>
+                                        <small className="text-sm leading-none">{this.props.meta.date}</small>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <Motion.h1
-                                layoutId={`post-${this.props.meta.link}`}
-                                className="!mb-4"
-                            >{this.props.meta.title_short}</Motion.h1>
+                                <Motion.h1
+                                    layoutId={`post-${this.props.meta.link}`}
+                                    className="!mb-4"
+                                >{this.props.meta.title_short}</Motion.h1>
 
-                            <p className="!my-0 !leading-none"><small>{ this.props.meta.description }</small></p>
+                                <p className="!my-0 !leading-none lg:pb-4"><small>{ this.props.meta.description }</small></p>
 
-                            <hr className="md:w-[90%] ml-auto !mb-0 !border-t-4" style={{ borderColor: this.props.meta.borderColor }} />
+                                <hr className="md:w-[90%] ml-auto !mb-0 !border-t-4" style={{ borderColor: this.props.meta.borderColor }} />
 
-                            <div className="md:text-right">
-                                <Link href="/blog"><a className="text-sm opacity-80 hover:opacity-100 focus:opacity-100">Back to posts</a></Link>
+                                <div className="md:text-right">
+                                    <Link href="/"><a className="text-sm opacity-80 hover:opacity-100 focus:opacity-100">Back to Home</a></Link>
+                                </div>
                             </div>
                         </XlContainer>
                    </div>
@@ -82,7 +84,9 @@ export default class PostLayout extends Component
 
                 <div className="pb-8 md:pb-16">
                     <XlContainer>
-                        {this.props.children}
+                        <div className="prose prose-lg lg:prose-xl !leading-snug">
+                            {this.props.children}
+                        </div>
                     </XlContainer>
                 </div>
 
@@ -90,13 +94,9 @@ export default class PostLayout extends Component
 
                     <hr className="!mb-0 !border-t-4" style={{ borderColor: this.props.meta.borderColor }} />
 
-                    <div className="md:text-right">
-                        <Link href="/blog"><a className="text-sm opacity-80 hover:opacity-100 focus:opacity-100">Back to posts</a></Link>
+                    <div className="md:text-right pb-24 lg:pb-48">
+                        <Link href="/"><a className="text-sm opacity-80 hover:opacity-100 focus:opacity-100">Back to Home</a></Link>
                     </div>
-
-                    <h2>Read more posts...</h2>
-
-                    <PostsCards limit={3} isAnimated={false} excludeLink={this.props.meta.link} />
 
                 </XlContainer>
             </MainLayout>
