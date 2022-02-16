@@ -15,6 +15,7 @@ const baseDir = (process.cwd() + "").replace(/\/$/, '') + "/"
 const fileSourcesForPages = [
     ...fs.readdirSync(baseDir + "pages").map(path => `pages/${path}`),
     ...fs.readdirSync(baseDir + "pages/writing").map(path => `pages/writing/${path}`),
+    ...fs.readdirSync(baseDir + "pages/medium").map(path => `pages/medium/${path}`),
 ]
 
 const staticPages = fileSourcesForPages.filter((filePath) => {
