@@ -9,24 +9,12 @@ export const meta = {
     description: "Writes and consults about strategic leveraging of digital tech. Topics include: Augmented Reality, Software & Web, Code Mentoring, and experiences as Head Tech Director at Barr Media...",
 }
 
-<div className="container max-w-xl mx-auto py-12">
-    <XlContainer>
+<div className="container max-w-5xl mx-auto py-12">
+    <h1 className="lg:!text-8xl !mb-0 pb-12 lg:pb-24">Writing</h1>
 
-    <h1 className="lg:!text-8xl text-center !mb-0 pb-8">Writing</h1>
-
-    <div className="lg:text-center">
-        <PostsListings mediumPosts={props.mediumPosts}/>
+    <div className="max-w-2xl px-2 pb-12">
+        <PostsListings/>
     </div>
-
-    </XlContainer>
 </div>
 
 export default ({ children }) => <MainLayout meta={meta}>{children}</MainLayout>
-
-export const getStaticProps = async function() {
-    return {
-        props: {
-            ...await require("./../static-props/medium-posts").default(),
-        },
-    };
-}

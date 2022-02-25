@@ -38,7 +38,7 @@ export default class PostsCards extends Component
         }
 
         posts.sort((a, b) => {
-            return new Date(a.publishedAt) > new Date(b.publishedAt) ? -1 : 1
+            return new Date(a.meta.publishedAt) > new Date(b.meta.publishedAt) ? -1 : 1
         })
 
         let isMoreToShow = false
@@ -68,8 +68,8 @@ export default class PostsCards extends Component
                                 className="!text-white !mt-0"
                             >{ meta?.title_short ?? 'No article title??' }</Motion.h3>
 
-                            <small className="text-white opacity-75">
-                                #{ "00".substring(0, 2 - ("" + number).length ) + number }
+                            <small className="text-white opacity-90">
+                                <span className="text-sm !text-white opacity-75 leading-none">Featured on</span> { (new URL(link)).host }
                             </small>
                         </div>
                     </article>

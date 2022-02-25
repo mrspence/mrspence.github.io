@@ -20,6 +20,23 @@ export default async function getStaticProps()
 
     let posts = Array.isArray(rssJson.rss.channel.item) === false ? [rssJson.rss.channel.item] : rssJson.rss.channel.item;
 
+    posts = posts.map((mediumPost, index) => {
+        return {
+            link: mediumPost.link,
+            number: "Medium",
+            meta: {
+                title_short: mediumPost.title,
+                description: "",
+                publishedAt: mediumPost['pubDate'],
+            },
+        };
+    });
+
+    // Make sure sorted by date
+    posts.sort((a, b) => {
+        return new Date(a.meta.publishedAt) > new Date(b.meta.publishedAt) ? -1 : 1
+    })
+
     console.log(`Found ${posts.length} Medium posts! Latest post: ${posts[0].title}`);
 
     const gradients = [
@@ -30,17 +47,9 @@ export default async function getStaticProps()
     ];
 
     return {
-        mediumPosts: posts.map((mediumPost, index) => {
-            return {
-                link: mediumPost.link,
-                number: "Medium",
-                meta: {
-                    title_short: mediumPost.title,
-                    description: "",
-                    publishedAt: mediumPost['atom:updated'],
-                    background: gradients[index % gradients.length],
-                },
-            };
-        }),
+        mediumPosts: posts.map((post, index) => {
+            post.meta.background = gradients[index % gradients.length];
+            return post;
+        })
     };
 }
