@@ -43,24 +43,46 @@ export default class MainLayout extends Component
 
         return (
             <div>
-                {/*TODO: tech. debt: refactor, quite ugly atm and hard to read/understand*/}
                 <Head>
                     <title>{ this.props.meta.title }</title>
+
                     <meta name="author" content="Matthew Spence" />
+
                     {
-                        this.props.meta.description ? <meta name="description" content={ this.props.meta.description } /> : null
+                        this.props.meta.description ?
+                            <meta name="description" content={ this.props.meta.description } /> :
+                            null
                     }
+
                     <meta name="og:title" content={this.props.meta.og_title ? this.props.meta.og_title : this.props.meta.title} />
+
                     <meta name="twitter:title" content={this.props.meta.og_title ? this.props.meta.og_title : this.props.meta.title} />
+
                     {
-                        this.props.meta.description ? <meta name="og:description" content={ this.props.meta.description } /> : null
+                        this.props.meta.description ?
+                            <meta name="og:description" content={ this.props.meta.description } /> :
+                            null
                     }
+
                     {
-                        this.props.meta.description ? <meta name="twitter:description" content={ this.props.meta.description } /> : null
+                        this.props.meta.description ?
+                            <meta name="twitter:description" content={ this.props.meta.description } /> :
+                            null
                     }
+
                     {
-                        this.props.meta.image ? <meta name="og:image" content={this.props.meta.image} /> : null
+                        this.props.meta.image ?
+                            <meta name="og:image" content={this.props.meta.image} /> :
+                            null
                     }
+
+                    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+                    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+                    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+                    <link rel="manifest" href="/site.webmanifest"/>
+                    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#43a9a3"/>
+                    <meta name="msapplication-TileColor" content="#ffffff"/>
+                    <meta name="theme-color" content="#ffffff"/>
 
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
                     <link rel="preload" as="style" href="//fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" />
@@ -73,6 +95,7 @@ export default class MainLayout extends Component
                     />
 
                     <script type="application/ld+json">{ this.getOrganisationSchema(this.state.router) }</script>
+
                     {
                         this.props.meta.schema ? <script type="application/ld+json">{ this.props.meta.schema(this.state.router) }</script> : null
                     }
@@ -80,8 +103,8 @@ export default class MainLayout extends Component
 
                 <header className="container max-w-5xl mx-auto flex justify-between items-center py-12 p-4 lg:px-3">
                     <Link href="/">
-                        <a className="inline-block relative font-bold text-secondary ml-10 text-sm md:text-base">
-                            <img className={"absolute top-0 left-0 inline-block w-[2rem] rounded-full transform -translate-y-1 -translate-x-10"} src="/images/profile.jpg" alt="Matt Spence profile image"/>
+                        <a className="inline-block relative font-bold text-secondary ml-10 text-sm md:text-base" title="Matthew Spence | Home">
+                            <img className={"absolute top-0 left-0 inline-block w-[2rem] rounded-full transform -translate-y-1 -translate-x-10"} src="/images/profile.jpg" alt="Matthew Spence, Digital Technology Consultant, Tech Lead @ Barr Media, Software Developer"/>
                             <span className={`text-heading`}>Matthew</span> Spence
                         </a>
                     </Link>
@@ -95,7 +118,7 @@ export default class MainLayout extends Component
                                 ( this.state.isMobileNavigationVisible ? "" : "!hidden md:!block" )
                             }
                         >
-                            <div className="md:hidden absolute top-0 left-0 w-full h-full bg-background pointer-events-none"></div>
+                            <div className="md:hidden absolute top-0 left-0 w-full h-full bg-background pointer-events-none"/>
 
                             <Link href="/">
                                 <a className="text-xl md:text-base"><span className="font-bold text-heading">01.</span> Home</a>
@@ -184,6 +207,6 @@ export default class MainLayout extends Component
                     </div>
                 </footer>
             </div>
-    );
+        );
     }
 }
