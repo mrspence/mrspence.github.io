@@ -191,3 +191,7 @@ body, body p {
 .prose hr {
     border-color: rgba(100, 100, 100, 0.3);
 }
+
+.font-pt-serif {
+    font-family: "PT Serif", serif;
+}
