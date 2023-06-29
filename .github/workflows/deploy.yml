@@ -4,6 +4,9 @@ permissions:
   contents: write
 
 on:
+  workflow_run:
+  schedule:
+    - cron: "0 1 * * *" # Runs at 1 AM every day
   push:
     branches:
       - main # replace with your default branch name
