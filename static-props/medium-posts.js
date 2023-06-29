@@ -2,35 +2,49 @@ import getConfig from 'next/config'
 const XmlParser = require("fast-xml-parser")
 const { publicRuntimeConfig } = getConfig()
 
+const generatePost = (link, number, titleShort, description, publishedAt) => ({
+    link,
+    number,
+    meta: {
+        title_short: titleShort,
+        description,
+        publishedAt,
+    }
+})
+
 export default async function getStaticProps()
 {
     console.log("Fetching Medium posts...");
 
-    let response = await fetch(publicRuntimeConfig.urlNoCorsProxy + encodeURIComponent(publicRuntimeConfig.urlMediumRSSFeed))
+    let posts = []
 
-    if (!response.ok){
-        console.error("Unable to fetch Medium posts");
-        return;
+    if (process.env.NODE_ENV === "production") {
+        let response = await fetch(publicRuntimeConfig.urlNoCorsProxy + encodeURIComponent(publicRuntimeConfig.urlMediumRSSFeed))
+
+        if (!response.ok){
+            console.error("Unable to fetch Medium posts");
+            return;
+        }
+
+        const json = await response.json();
+        const rssXml = json.contents;
+
+        const rssJson = XmlParser.parse(rssXml, {}, true)
+
+        posts = Array.isArray(rssJson.rss.channel.item) === false ? [rssJson.rss.channel.item] : rssJson.rss.channel.item;
+
+        posts.map((mediumPost, index) => generatePost(mediumPost.link, "Medium", mediumPost.title, "", mediumPost['pubDate']));
     }
-
-    const json = await response.json();
-    const rssXml = json.contents;
-
-    const rssJson = XmlParser.parse(rssXml, {}, true)
-
-    let posts = Array.isArray(rssJson.rss.channel.item) === false ? [rssJson.rss.channel.item] : rssJson.rss.channel.item;
-
-    posts = posts.map((mediumPost, index) => {
-        return {
-            link: mediumPost.link,
-            number: "Medium",
-            meta: {
-                title_short: mediumPost.title,
-                description: "",
-                publishedAt: mediumPost['pubDate'],
-            },
-        };
-    });
+    else {
+        posts = [
+            generatePost("http://matt-spence.com/#", "Medium", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "", (new Date).toISOString()),
+            generatePost("http://matt-spence.com/#", "Medium", "Nulla nec augue ac lacus fermentum faucibus.", "", (new Date).toISOString()),
+            generatePost("http://matt-spence.com/#", "Medium", "Sed vulputate mauris non libero molestie tincidunt.", "", (new Date).toISOString()),
+            generatePost("http://matt-spence.com/#", "Medium", "Praesent at felis a eros auctor lacinia.", "", (new Date).toISOString()),
+            generatePost("http://matt-spence.com/#", "Medium", "Donec auctor mi sit amet ligula euismod, ac scelerisque lorem commodo.", "", (new Date).toISOString()),
+            generatePost("http://matt-spence.com/#", "Medium", "Vestibulum consequat ipsum a semper eleifend.", "", (new Date).toISOString()),
+        ]
+    }
 
     // Make sure sorted by date
     posts.sort((a, b) => {
