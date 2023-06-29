@@ -33,7 +33,7 @@ export default async function getStaticProps()
 
         posts = Array.isArray(rssJson.rss.channel.item) === false ? [rssJson.rss.channel.item] : rssJson.rss.channel.item;
 
-        posts.map((mediumPost, index) => generatePost(mediumPost.link, "Medium", mediumPost.title, "", mediumPost['pubDate']));
+        posts = posts.map((mediumPost, index) => generatePost(mediumPost.link, "Medium", mediumPost.title, "", mediumPost['pubDate']));
     }
     else {
         posts = [
